@@ -97,7 +97,7 @@ if (process.argv[2] === "movie-this") {
 	// use twitter node pacakge 
 	var Twitter = require("twitter");
 
-	var client = new Twitter (keys.twitterKeys);
+	var client = new Twitter(keys.twitterKeys);
 
 	var params = {screen_name: 'node_js'};
 
@@ -105,6 +105,8 @@ if (process.argv[2] === "movie-this") {
 	  if (!error) {
 	    console.log(tweets);
 	    console.log(response);
+	  } else {
+	  	console.log("error");
 	  }
 	});
 };
