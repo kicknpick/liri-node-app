@@ -91,20 +91,20 @@ if (process.argv[2] === "movie-this") {
 } else if (process.argv[2] === "my-tweets") {
 
 	// use fs node package to read keys.js file
-	var keys = require("./keys.js");
+	var keys = require("./keys");
 	console.log(keys.twitterKeys);
+	var myTwitterKeys = keys.twitterKeys;
 
 	// use twitter node pacakge 
 	var Twitter = require("twitter");
 
-	var client = new Twitter(keys.twitterKeys);
+	var client = new Twitter(myTwitterKeys);
 
 	var params = {screen_name: 'node_js'};
 
 	client.get('statuses/user_timeline', params, function(error, tweets, response) {
 	  if (!error) {
 	    console.log(tweets);
-	    console.log(response);
 	  } else {
 	  	console.log("error");
 	  }
