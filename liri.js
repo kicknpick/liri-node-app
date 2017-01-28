@@ -98,12 +98,18 @@ if (process.argv[2] === "movie-this") {
 	// use twitter node pacakge 
 	var Twitter = require("twitter");
 
-	var client = new Twitter(myTwitterKeys);
+	var client = new Twitter ({
+		 consumer_key: myTwitterKeys.consumer_key,
+		 consumer_secret: myTwitterKeys.consumer_secret,
+		 access_token_key: myTwitterKeys.access_token_key,
+		 access_token_secret: myTwitterKeys.access_token_secret
+	});
 
-	var params = {screen_name: 'node_js'};
+	var params = {screen_name: '@kicknpick18'};
 
 	client.get('statuses/user_timeline', params, function(error, tweets, response) {
 	  if (!error) {
+	    // var myTimeline = JSON.parse(tweets);
 	    console.log(tweets);
 	  } else {
 	  	console.log("error");
